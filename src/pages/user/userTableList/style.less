@@ -1,0 +1,51 @@
+.searchWrapperBox {
+  margin-bottom: 24px;
+}
+
+.searchButtonBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  a {
+    display: none;
+    margin: 0;
+    font-size: medium;
+    @media screen and (max-width: 575px) {
+      display: block;
+    }
+  }
+}
+
+.clearFilterIcon {
+  padding: 7px;
+  color: #1890ff;
+  font-weight: bold;
+  border: 1px solid #1890ff;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.colHidden {
+  display: none !important;
+  @media screen and (min-width: 575px) {
+    display: block;
+  }
+}
+
+.collapseText {
+  font-weight: 500;
+  span {
+    font-size: 14px;
+  }
+}
+
+.formItem {
+  margin-bottom: 0;
+}

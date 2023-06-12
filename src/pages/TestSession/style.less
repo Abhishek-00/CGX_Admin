@@ -1,0 +1,150 @@
+.searchWrapperBox {
+  margin-bottom: 24px !important;
+}
+
+.searchButtonBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  a {
+    display: none;
+    margin: 0;
+    font-size: medium;
+    @media screen and (max-width: 575px) {
+      display: block;
+    }
+  }
+}
+
+.clearFilterIcon {
+  padding: 7px;
+  color: #1890ff;
+  font-weight: bold;
+  border: 1px solid #1890ff;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.colHidden {
+  display: none !important;
+  @media screen and (min-width: 575px) {
+    display: block;
+  }
+}
+
+.collapseText {
+  font-weight: 500;
+  span {
+    font-size: 14px;
+  }
+}
+
+.formItem {
+  margin-bottom: 0 !important;
+}
+
+.camoTableImage {
+  width: 40px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.camoModelImage {
+  min-width: 180px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.camoFinalImage {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.stepperModel {
+  min-width: 800px;
+  .spaceBetween {
+    height: 20px;
+  }
+  .noData {
+    margin: auto;
+  }
+  .imageListHrT {
+    display: flex;
+    min-height: 250px;
+    padding: 25px;
+    overflow: auto;
+    border: 1px solid #c4c4c4;
+  }
+  .camoModelImage {
+    min-width: 175px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  .camoModelListImage {
+    min-width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  .selector {
+    padding: 25px;
+    border: 1px solid #c4c4c4;
+
+    .selectorSearch {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      input {
+        width: 50%;
+      }
+      .items {
+        justify-content: center;
+
+        .formItem {
+          max-width: 250px;
+        }
+      }
+    }
+
+    .imageListHr {
+      scrollbar-width: thin;
+
+      .ant-card-body {
+        padding: 10px !important;
+      }
+
+      .selectedClass {
+        border: 2px solid #1890ff;
+      }
+    }
+  }
+}
+
+.listCard > div:last-child {
+  padding: 10px !important;
+}
+
+.cardStyle {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.selectedImage {
+  border: 2px solid #1890ff;
+  border-radius: 4px;
+}
