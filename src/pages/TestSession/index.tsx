@@ -198,7 +198,7 @@ const TestSession: React.FC = () => {
       },
     );
   };
-  const getUserList = (pageNumber: number, size = 10, value: string) => {
+  const getUserList = (pageNumber: number, size = 20, value: string) => {
     UserAPIClient.getUsers(
       {
         page_number: pageNumber,
