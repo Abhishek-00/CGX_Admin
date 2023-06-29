@@ -10,7 +10,7 @@ import { Column } from '@ant-design/charts';
 import { filtersSelectCard, filtersCheckbox, stats, graphData } from './dummyData/api';
 
 import CamoAPIClient from '../../services/camosActions/index';
-import styles from '../../global.less';
+import styles from './styles.less';
 
 import imageUrl1 from './assets/1.png';
 import imageUrl2 from './assets/2.png';
@@ -156,7 +156,7 @@ const Analytics1: React.FC = () => {
                                                         ))}
 
                                                     </Select> */}
-                                                <FormItem name={items.title} className={styles.formItem}>
+                                                <FormItem name={items.title} className={styles.formItems}>
                                                     <Select
                                                         size={'small'}
                                                         bordered={false}

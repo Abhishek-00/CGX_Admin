@@ -1,7 +1,7 @@
 export const filtersSelectCard = [
   {
     key: '1',
-    title: 'Testing',
+    title: 'Camouflage',
     selectDefault: 'Camouflage',
     options: [
       {
