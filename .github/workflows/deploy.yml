@@ -30,5 +30,5 @@ jobs:
     # - run: export NODE_OPTIONS=--openssl-legacy-provider && yarn build 
     # - run: cp -a /root/CGX/admin/CGX_Admin/CGX_Admin/dist/. /var/www/html/cgx_admin/
     - run: pm2 kill
-    - run: pm2 --name admin start "yarn start:dev"
+    - run: pm2 --name "cgx-dashboard" start "yarn start:dev"
     

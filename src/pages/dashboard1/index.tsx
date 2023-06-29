@@ -4,14 +4,13 @@ import { Card, Col, Row, Form, Input, Button, Divider, Checkbox, message } from 
 import { ConfigProvider } from 'antd';
 import { Space, Select } from 'antd';
 
-import './index.css';
 
 import { Column } from '@ant-design/charts';
 
 import { filtersSelectCard, filtersCheckbox, stats, graphData } from './dummyData/api';
 
 import CamoAPIClient from '../../services/camosActions/index';
-import styles from './styles.less';
+import styles from '../../global.less';
 
 import imageUrl1 from './assets/1.png';
 import imageUrl2 from './assets/2.png';

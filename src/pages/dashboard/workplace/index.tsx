@@ -187,13 +187,13 @@ const Workplace: FC = () => {
             bordered={false}
             bodyStyle={{ padding: 0 }}
           >
-            <EditableLinkGroup onAdd={() => {}} links={links} linkElement={Link} />
+            <EditableLinkGroup onAdd={() => { }} links={links} linkElement={Link} />
           </Card>
           <Card
             style={{ marginBottom: 24 }}
             bordered={false}
             title="XX 指数"
-            // loading={data?.radarData?.length === 0}
+          // loading={data?.radarData?.length === 0}
           >
             <div className={styles.chart}>
               {/* <Radar
