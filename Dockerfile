@@ -25,7 +25,7 @@ EXPOSE 8080
 
 
 # Specify the command to run when the container starts
-# CMD ["npm", "start"]
+CMD ["npm", "start"]
 
 # # Nginx block code
 # FROM nginx:alpine
