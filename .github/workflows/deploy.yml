@@ -5,13 +5,12 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
   pull_request:
-    branches: [ "main" ]
+    branches: ['main']
 
 jobs:
   build:
-
     runs-on: self-hosted
 
     strategy:
@@ -20,15 +19,14 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: rm -rf src/.umi
-    - run: yarn
-    # - run: export NODE_OPTIONS=--openssl-legacy-provider && yarn build 
-    # - run: cp -a /root/CGX/admin/CGX_Admin/CGX_Admin/dist/. /var/www/html/cgx_admin/
-    - run: pm2 kill
-    - run: pm2 --name "cgx-dashboard" start "yarn start:dev"
-    
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: rm -rf src/.umi
+      - run: yarn
+      # - run: export NODE_OPTIONS=--openssl-legacy-provider && yarn build
+      # - run: cp -a /root/CGX/admin/CGX_Admin/CGX_Admin/dist/. /var/www/html/cgx_admin/
+      - run: pm2 kill
+      - run: pm2 --name "cgx-admin" start "yarn start:dev"

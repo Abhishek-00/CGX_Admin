@@ -180,22 +180,25 @@ const Analytics1: React.FC = () => {
 
                         <Divider type="vertical" plain={false} />
 
-                        <Card className={styles.filtersSelectCard} bordered={false}>
+                        {/* <Card className={styles.filtersSelectCard} bordered={false}>
                             <Row gutter={18} className={styles.filtersSelectCardChild}>
                                 {filtersCheckbox.map((items) => (
                                     <Col span={6} key={items.key}>
-                                        {/* <Checkbox>{items.title}</Checkbox> */}
-                                        {/* <label className="checkbox-btn">
+                                        <Checkbox>{items.title}</Checkbox>
+                                        <label className="checkbox-btn">
                                             <label htmlFor="checkbox">{items.title}</label>
                                             <input id="checkbox" type="checkbox" />
                                             <span className="checkmark1 check-box"> </span>
-                                        </label> */}
+                                        </label>
                                     </Col>
                                 ))}
                             </Row>
-                        </Card>
-                    </div>
+                        </Card> */}
 
+                    </div>
+                    <Button type="primary" shape="round" style={{ background: '#00000' }} size="large">
+                        Filter
+                    </Button>
                     <div className={styles.divider}> </div>
 
                     <div className={styles.statusContainer}>
