@@ -537,7 +537,7 @@ const TableList: React.FC = () => {
               required: true,
               message: 'Please input affiliate url!',
             },
-            { type: 'url', message: 'Please add valid URL!' },
+            // { type: 'url', message: 'Please add valid URL!' },
           ]}
         >
           <Input
