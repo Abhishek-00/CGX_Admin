@@ -18,7 +18,7 @@ import LazyLoad from 'react-lazyload';
 import type { CAMOS, Camo, Pagination, Tag, CamoFilter, CamoImageType } from './data';
 import ProDescriptions from '@ant-design/pro-descriptions';
 import type { ProDescriptionsItemProps } from '@ant-design/pro-descriptions';
-import { CustomSelect } from '@/components/CustomSelect';
+// import { CustomSelect } from '@/components/CustomSelect';
 import CamoAPIClient from '../../services/camosActions/index';
 import ConfirmModel from '../../components/ConfirmModel';
 import styles from './style.less';
@@ -537,7 +537,7 @@ const TableList: React.FC = () => {
               required: true,
               message: 'Please input affiliate url!',
             },
-            // { type: 'url', message: 'Please add valid URL!' },
+            { type: 'url', message: 'Please add valid URL!' },
           ]}
         >
           <Input
