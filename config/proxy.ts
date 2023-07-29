@@ -9,7 +9,7 @@
 export default {
   dev: {
     '/api/': {
-      target: 'http://45.80.152.97:8888',
+      target: 'https://cgx.camogearfinder.com',
       changeOrigin: true,
       pathRewrite: { '^/api': '' },
     },
