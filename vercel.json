@@ -1,0 +1,12 @@
+// vercel.json
+{
+    "rewrites": [
+        {
+            "source": "/api/(.*)",
+            "destination": "/api/$1",
+            "headers": {
+                "X-Real-URL": "https://cgx.camogearfinder.com"
+            }
+        }
+    ]
+}

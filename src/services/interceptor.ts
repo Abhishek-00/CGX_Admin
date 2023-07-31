@@ -1,6 +1,8 @@
 import { extend } from 'umi-request';
 import { InvalidToken } from './authActions/login';
 
+// const BASE_URL = 'https://cgx.camogearfinder.com/';
+
 const request = extend({
   errorHandler: (error) => {
     console.error(error);
