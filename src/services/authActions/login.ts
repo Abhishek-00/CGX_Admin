@@ -1,11 +1,13 @@
 /* eslint-disable */
-import { request, history } from 'umi';
+import { history } from 'umi';
 import { unAuthRoutes } from '../../constants/common.constants';
 import { message } from 'antd';
 import { clearStorage } from '../../utils/storage';
+import request from '@/utils/request';
 
 export async function login(body: API.LoginParams, options?: { [key: string]: any }) {
-  return request<API.LoginResult>('/api/login', {
+  // Remove "/api" from all requests, so it works in production
+  return request<API.LoginResult>('/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
