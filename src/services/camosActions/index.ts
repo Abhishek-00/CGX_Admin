@@ -12,7 +12,7 @@ async function getCamosList(body: { [key: string]: any }, options?: { [key: stri
   dispatch(fetchCamoListRequest());
   try {
     let accessToken = await readData('accessToken');
-    const response = await request<API.LoginResult>('/api/camos/camos/', {
+    const response = await request<API.LoginResult>('/camos/camos/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ async function getCamosList(body: { [key: string]: any }, options?: { [key: stri
 
 async function createCamos(body: { [key: string]: any }, options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return request<API.LoginResult>('/api/camos/addnewcamo/', {
+  return request<API.LoginResult>('/camos/addnewcamo/', {
     method: 'POST',
     headers: {
       token: `${accessToken}`,
@@ -47,7 +47,7 @@ async function updateCamos(
   options?: { [key: string]: any },
 ) {
   let accessToken = await readData('accessToken');
-  return request<API.LoginResult>(`/api/camos/updatecamo/${camo_id}`, {
+  return request<API.LoginResult>(`/camos/updatecamo/${camo_id}`, {
     method: 'PUT',
     headers: {
       token: `${accessToken}`,
@@ -59,7 +59,7 @@ async function updateCamos(
 
 async function removeCamos(data: { key: number[] }, options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return request<Record<string, any>>('/api/camos/delete_camo', {
+  return request<Record<string, any>>('/camos/delete_camo', {
     data,
     method: 'DELETE',
     headers: {
@@ -71,7 +71,7 @@ async function removeCamos(data: { key: number[] }, options?: { [key: string]: a
 
 async function getCamoImage(url: string) {
   let accessToken = await readData('accessToken');
-  return request<Record<string, any>>(`/api/camos/image${url}`, {
+  return request<Record<string, any>>(`/camos/image${url}`, {
     method: 'GET',
     headers: {
       token: `${accessToken}`,

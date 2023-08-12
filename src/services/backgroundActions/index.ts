@@ -16,7 +16,7 @@ async function getBackgroundsList(body: { [key: string]: any }, options?: { [key
   dispatch(fetchBackgroundListRequest());
   try {
     let accessToken = await readData('accessToken');
-    const response = await request<API.LoginResult>('/api/background', {
+    const response = await request<API.LoginResult>('/background', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ async function getBackgroundById(
 ) {
   try {
     let accessToken = await readData('accessToken');
-    const response = await request<API.LoginResult>(`/api/background/${id}`, {
+    const response = await request<API.LoginResult>(`/background/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ async function getBackgroundById(
 
 async function createBackgrounds(body: { [key: string]: any }, options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return request<API.LoginResult>('/api/background/create_background', {
+  return request<API.LoginResult>('/background/create_background', {
     method: 'POST',
     headers: {
       token: `${accessToken}`,
@@ -73,7 +73,7 @@ async function updateBackgrounds(
   options?: { [key: string]: any },
 ) {
   let accessToken = await readData('accessToken');
-  return request<API.LoginResult>(`/api/background/update_background/${background_id}`, {
+  return request<API.LoginResult>(`/background/update_background/${background_id}`, {
     method: 'PUT',
     headers: {
       token: `${accessToken}`,
@@ -85,7 +85,7 @@ async function updateBackgrounds(
 
 async function removeBackgrounds(data: { key: number[] }, options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return request<Record<string, any>>('/api/background/delete_background', {
+  return request<Record<string, any>>('/background/delete_background', {
     data,
     method: 'DELETE',
     headers: {
@@ -97,7 +97,7 @@ async function removeBackgrounds(data: { key: number[] }, options?: { [key: stri
 
 async function getBackgroundImage(url: string) {
   let accessToken = await readData('accessToken');
-  return request<Record<string, any>>(`/api/background/image${url}`, {
+  return request<Record<string, any>>(`/background/image${url}`, {
     method: 'GET',
     headers: {
       token: `${accessToken}`,

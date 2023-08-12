@@ -16,7 +16,7 @@ async function getTestSessionList(body: { [key: string]: any }, options?: { [key
   try {
     dispatch(fetchTestListRequest());
     let accessToken = await readData('accessToken');
-    const response = await request<API.LoginResult>('/api/testsession', {
+    const response = await request<API.LoginResult>('/testsession', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ async function getTestSessionList(body: { [key: string]: any }, options?: { [key
 }
 async function createTestSession(body: { [key: string]: any }, options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return request<API.LoginResult>('/api/testsession/createtest', {
+  return request<API.LoginResult>('/testsession/createtest', {
     method: 'POST',
     headers: {
       token: `${accessToken}`,
@@ -50,7 +50,7 @@ async function updateTestSession(
   options?: { [key: string]: any },
 ) {
   let accessToken = await readData('accessToken');
-  return request<API.LoginResult>(`/api/testsession/updattestsession/${id}`, {
+  return request<API.LoginResult>(`/testsession/updattestsession/${id}`, {
     method: 'PUT',
     headers: {
       token: `${accessToken}`,
@@ -62,7 +62,7 @@ async function updateTestSession(
 
 async function removeTestSession(data: { key: number[] }, options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return request<Record<string, any>>('/api/testsession/delete_test', {
+  return request<Record<string, any>>('/testsession/delete_test', {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

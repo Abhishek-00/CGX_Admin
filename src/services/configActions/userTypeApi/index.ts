@@ -4,7 +4,7 @@ import request from '../../interceptor';
 
 async function getUserType(options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return await request('/api/configuration/usertypes', {
+  return await request('/configuration/usertypes', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ async function getUserType(options?: { [key: string]: any }) {
 
 async function createUserType(body: { [key: string]: any }, options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return await request<API.LoginResult>('/api/configuration/add_usertype', {
+  return await request<API.LoginResult>('/configuration/add_usertype', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ async function createUserType(body: { [key: string]: any }, options?: { [key: st
 
 async function updateUserType(body: { [key: string]: any }, options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return await request<API.LoginResult>(`/api/configuration/update_usertype/${body.Usertype_ID}`, {
+  return await request<API.LoginResult>(`/configuration/update_usertype/${body.Usertype_ID}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ async function updateUserType(body: { [key: string]: any }, options?: { [key: st
 
 async function removeUserType(data: number[], options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return request<Record<string, any>>('/api/configuration/delete_usertypes', {
+  return request<Record<string, any>>('/configuration/delete_usertypes', {
     headers: {
       token: `${accessToken}`,
     },

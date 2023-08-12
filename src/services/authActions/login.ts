@@ -1,11 +1,12 @@
 /* eslint-disable */
-import { request, history } from 'umi';
+import { history } from 'umi';
 import { unAuthRoutes } from '../../constants/common.constants';
 import { message } from 'antd';
 import { clearStorage } from '../../utils/storage';
+import request from '@/utils/request';
 
 export async function login(body: API.LoginParams, options?: { [key: string]: any }) {
-  return request<API.LoginResult>('/api/login', {
+  return request<API.LoginResult>('/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -16,7 +17,7 @@ export async function login(body: API.LoginParams, options?: { [key: string]: an
 }
 
 export async function user(body: any, options?: { [key: string]: any }) {
-  return request<any>('/api/home', {
+  return request<any>('/home', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -27,7 +28,7 @@ export async function user(body: any, options?: { [key: string]: any }) {
 }
 
 export async function emailVarification(body: any, options?: { [key: string]: any }) {
-  return request<any>(`/api/emailvalidation/${body.token}`, {
+  return request<any>(`/emailvalidation/${body.token}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

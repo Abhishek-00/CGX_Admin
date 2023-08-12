@@ -22,7 +22,7 @@ function getCurrantUserData() {
 
 async function getUserTypes(options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  const response = await request('/api/User/get_usermaster', {
+  const response = await request('/User/get_usermaster', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ async function getUsers(body: { [key: string]: any }, options?: { [key: string]:
   dispatch(fetchUserListRequest());
   try {
     let accessToken = await readData('accessToken');
-    const response = await request('/api/User/', {
+    const response = await request('/User/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ async function getUsers(body: { [key: string]: any }, options?: { [key: string]:
 
 async function createUser(body: { [key: string]: any }, options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return await request<API.LoginResult>('/api/User/add_user', {
+  return await request<API.LoginResult>('/User/add_user', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ async function createUser(body: { [key: string]: any }, options?: { [key: string
 
 async function updateUser(body: { [key: string]: any }, options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return await request<API.LoginResult>(`/api/User/updated_user/${body.user_ID}`, {
+  return await request<API.LoginResult>(`/User/updated_user/${body.user_ID}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ async function updateUser(body: { [key: string]: any }, options?: { [key: string
 
 async function removeUser(data: number[], options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return request<Record<string, any>>('/api/User/delete_user', {
+  return request<Record<string, any>>('/User/delete_user', {
     headers: {
       token: `${accessToken}`,
     },

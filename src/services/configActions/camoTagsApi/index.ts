@@ -4,7 +4,7 @@ import request from '../../interceptor';
 
 async function getCamoTags(options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return await request('/api/camos/mastercamotags', {
+  return await request('/camos/mastercamotags', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ async function getCamoTags(options?: { [key: string]: any }) {
 
 async function creatCamoTag(body: { [key: string]: any }, options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return await request<API.LoginResult>('/api/camos/addmastercamotags', {
+  return await request<API.LoginResult>('/camos/addmastercamotags', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ async function creatCamoTag(body: { [key: string]: any }, options?: { [key: stri
 
 async function updateCamoTag(body: { [key: string]: any }, options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return await request<API.LoginResult>(`/api/camos/updatemastercamotags`, {
+  return await request<API.LoginResult>(`/camos/updatemastercamotags`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ async function updateCamoTag(body: { [key: string]: any }, options?: { [key: str
 
 async function removeCamoTag(data: number[], options?: { [key: string]: any }) {
   let accessToken = await readData('accessToken');
-  return request<Record<string, any>>('/api/camos/deletemastercamotags', {
+  return request<Record<string, any>>('/camos/deletemastercamotags', {
     headers: {
       token: `${accessToken}`,
     },
