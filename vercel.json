@@ -1,12 +1,8 @@
-// vercel.json
 {
-    "rewrites": [
-        {
-            "source": "/api/(.*)",
-            "destination": "/api/$1",
-            "headers": {
-                "X-Real-URL": "https://cgx.camogearfinder.com"
-            }
+    "version": 2,
+    "build": {
+        "env": {
+            "NODE_VERSION": "18"
         }
-    ]
+    }
 }
