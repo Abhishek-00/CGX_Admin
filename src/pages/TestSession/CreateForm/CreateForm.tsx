@@ -144,7 +144,7 @@ const CreateForm: React.FC<CreateFormProps> = ({
       setSelectedCamoIndexes([]);
     }
 
-    return () => { };
+    return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEdit, currentRow]);
 

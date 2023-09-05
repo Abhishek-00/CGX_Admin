@@ -5,10 +5,6 @@ export default function Image({ url, alt, className }: any) {
     //   alt={alt}
     //   className={className}
     // />
-    <img
-      src={`${url}`}
-      alt={alt}
-      className={className}
-    />
+    <img src={`${url}`} alt={alt} className={className} />
   );
 }

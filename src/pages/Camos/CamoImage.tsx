@@ -46,12 +46,7 @@ export default function CamoImageCompetent({
       )}
     </Spin>
   ) : (
-    <img
-      src={`${imageUrl}`}
-      alt={alt}
-      className={classNameStyle}
-      loading="lazy"
-    />
+    <img src={`${imageUrl}`} alt={alt} className={classNameStyle} loading="lazy" />
     // <Image url={imageUrl} alt={alt} className={classNameStyle} />
   );
 }

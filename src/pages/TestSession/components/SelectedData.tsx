@@ -38,12 +38,7 @@ const SelectedData: React.FC<CreateFormProps> = ({
                 isSession
               />
             ) : (
-              <img
-                src={`${url}`}
-                alt={name}
-                className={styles.camoModelImage}
-                loading="lazy"
-              />
+              <img src={`${url}`} alt={name} className={styles.camoModelImage} loading="lazy" />
               // <Image url={url} alt={name} className={styles.camoModelImage} />
             )
           }

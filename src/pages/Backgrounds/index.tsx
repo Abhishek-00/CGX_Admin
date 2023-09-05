@@ -122,7 +122,7 @@ const TableList: React.FC = () => {
     {
       title: 'Location',
       dataIndex: 'location',
-      sorter: (a: any, b: any) => a.location.localeCompare(b.location),//a.location && a.location.localeCompare(b.location)
+      sorter: (a: any, b: any) => a.location.localeCompare(b.location), //a.location && a.location.localeCompare(b.location)
     },
     {
       title: 'Weather',
@@ -204,7 +204,6 @@ const TableList: React.FC = () => {
   };
 
   const handleFilter = (val: Background) => {
-
     if (
       val.added_by === '' &&
       val.background_name === '' &&
@@ -224,8 +223,8 @@ const TableList: React.FC = () => {
       val.weather === '' ||
       val.category === ''
     ) {
-      console.log("values");
-      console.log(val)
+      console.log('values');
+      console.log(val);
       // filterForm.resetFields();
       setFilterParams({});
       setHideClearBtn(false);

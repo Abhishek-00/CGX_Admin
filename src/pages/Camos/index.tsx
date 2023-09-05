@@ -222,7 +222,7 @@ const TableList: React.FC = () => {
       setFilterParams(val);
       setHideClearBtn(true);
     }
-    console.log("values");
+    console.log('values');
     console.log(val);
   };
 
@@ -251,9 +251,8 @@ const TableList: React.FC = () => {
         }
       }
       if (response.data) {
-        setCamoDataList(response.data[0].camos)
+        setCamoDataList(response.data[0].camos);
         console.log('data');
-
       } else {
         setCamoDataList([]);
         console.log('data no');
@@ -263,7 +262,7 @@ const TableList: React.FC = () => {
       console.log(filterParams);
 
       hide();
-      setCurrentRow(response)
+      setCurrentRow(response);
       return true;
     } catch (error) {
       hide();

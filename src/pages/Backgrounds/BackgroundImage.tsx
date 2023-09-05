@@ -11,7 +11,7 @@ export default function BackgroundImageCompetent({ url, alt, className, returnUr
   //   base64_content: '',
   //   file_type: '',
   // });
-  const [imageUrl, setImgUrl] = useState(url)
+  const [imageUrl, setImgUrl] = useState(url);
 
   const getBackgroundUrl = async () => {
     setLoading(true);
@@ -33,12 +33,7 @@ export default function BackgroundImageCompetent({ url, alt, className, returnUr
       <div className={styles.content} />
     </Spin>
   ) : (
-    <img
-      src={`${url}`}
-      alt={alt}
-      className={className}
-      loading="lazy"
-    />
+    <img src={`${url}`} alt={alt} className={className} loading="lazy" />
     // <Image url={imageUrl} alt={alt} className={className} />
   );
 }

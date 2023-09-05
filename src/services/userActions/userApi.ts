@@ -67,7 +67,7 @@ async function getUsers(body: { [key: string]: any }, options?: { [key: string]:
       data: body,
       ...(options || {}),
     });
-    console.log("hello");
+    console.log('hello');
 
     if (response) dispatch(fetchUserListSuccess(response.data));
     return response;
