@@ -1,3 +1,3 @@
 const unAuthRoutes = ['/user/login', '/user/register'];
-const gameUrl = 'http://45.80.152.97:8079';
+const gameUrl = 'https://cgx.camogearfinder.com/gamelist/';
 export { unAuthRoutes, gameUrl };

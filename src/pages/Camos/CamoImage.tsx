@@ -14,13 +14,17 @@ export default function CamoImageCompetent({
   isSession,
 }: any) {
   const [loading, setLoading] = useState<boolean>();
-  const [imageUrl, setImgUrl] = useState<CamoImageType>({
-    base64_content: '',
-    file_type: '',
-  });
+  // const [imageUrl, setImgUrl] = useState<CamoImageType>({
+  //   base64_content: '',
+  //   file_type: '',
+  // });
+  const [imageUrl, setImgUrl] = useState(url);
   const getImageUrl = async () => {
     setLoading(true);
-    const getImage: any = await CamoAPIClient.getCamoImage(url);
+    // const getImage: any = await CamoAPIClient.getCamoImage(url);
+    const getImage: any = url;
+    console.log(imageUrl);
+
     if (getImage) {
       setImgUrl(getImage);
       if (returnUrl) returnUrl(getImage);
@@ -42,6 +46,12 @@ export default function CamoImageCompetent({
       )}
     </Spin>
   ) : (
-    <Image url={imageUrl} alt={alt} className={classNameStyle} />
+    <img
+      src={`${imageUrl}`}
+      alt={alt}
+      className={classNameStyle}
+      loading="lazy"
+    />
+    // <Image url={imageUrl} alt={alt} className={classNameStyle} />
   );
 }

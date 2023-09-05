@@ -13,7 +13,7 @@ const Settings: LayoutSettings & {
   colorWeak: false,
   title: 'Camo Game',
   pwa: true,
-  logo: 'https://tinyurl.com/bdhdckhb',
+  logo: 'https://cgx.camogearfinder.com/images/logo.png',
   iconfontUrl: '',
 };
 

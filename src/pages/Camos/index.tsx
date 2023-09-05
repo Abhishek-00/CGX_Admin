@@ -38,7 +38,7 @@ const TableList: React.FC = () => {
   const [imageModalVisible, handleImageModalVisible] = useState<boolean>(false);
 
   const [tagsList, setTagList] = useState<{ label: string; value: string }[]>([]);
-  // const [camoDataList, setCamoDataList] = useState<CAMOS.TableListItem[]>([]);
+  const [camoDataList, setCamoDataList] = useState<CAMOS.TableListItem[]>([]);
   const [camoDataImageList, setCamoDataImageList] = useState<CamoImageType[]>([]);
   const [paginationData, setPaginationData] = useState<Pagination>({});
 
@@ -47,7 +47,7 @@ const TableList: React.FC = () => {
   const [currentRow, setCurrentRow] = useState<Camo>();
   const [selectedRowsState, setSelectedRows] = useState<CAMOS.TableListItem[]>([]);
   const [page, setPage] = useState<number>(1);
-  const [itemSize, setItemSize] = useState<number>(10000);
+  const [itemSize, setItemSize] = useState<number>(10);
 
   const [filterForm] = Form.useForm();
   const [filterParams, setFilterParams] = useState({});
@@ -111,7 +111,7 @@ const TableList: React.FC = () => {
     {
       title: 'Camo URL',
       dataIndex: 'camo_url',
-      sorter: (a: any, b: any) => a.camo_url && a.camo_url.localeCompare(b.camo_url),
+      sorter: (a: any, b: any) => a.camo_url.localeCompare(b.camo_url),
       ellipsis: true,
       render: (dom, entity) => {
         return (
@@ -133,12 +133,12 @@ const TableList: React.FC = () => {
     {
       title: 'Uploaded By',
       dataIndex: 'created_by',
-      sorter: (a: any, b: any) => a.created_by && a.created_by.localeCompare(b.created_by),
+      sorter: (a: any, b: any) => a.created_by.localeCompare(b.created_by),
     },
     {
       title: 'Tags',
       dataIndex: 'tag_name',
-      sorter: (a: any, b: any) => a.tag_name && a.tag_name.localeCompare(b.tag_name),
+      sorter: (a: any, b: any) => a.tag_name.localeCompare(b.tag_name),
       ellipsis: true,
     },
     {
@@ -188,6 +188,15 @@ const TableList: React.FC = () => {
   ];
 
   const handleFilter = (val: CamoFilter) => {
+    if (val.added_by === '') {
+      val.added_by = undefined;
+    }
+    if (val.camoname === '') {
+      val.camoname = undefined;
+    }
+    if (val.tag_name === '') {
+      val.tag_name = undefined;
+    }
     if (val.added_by === '' || val.camoname === '' || val.tag_name === '') {
       setFilterParams({});
       setHideClearBtn(false);
@@ -201,10 +210,20 @@ const TableList: React.FC = () => {
           });
         });
       }
-      val.tag_name = `[${tag_filter.toString()}]`;
+      if (val.tag_name != '') {
+        val.tag_name = `[${tag_filter.toString()}]`;
+        console.log('test');
+        if (val.tag_name == '[]') {
+          val.tag_name = undefined;
+          val.tag_name = [];
+          console.log('test1');
+        }
+      }
       setFilterParams(val);
       setHideClearBtn(true);
     }
+    console.log("values");
+    console.log(val);
   };
 
   const handleResetField = () => {
@@ -223,15 +242,32 @@ const TableList: React.FC = () => {
         },
         { params: filterParams },
       );
+      console.log(response?.code);
+      console.log(filterParams);
+
       if (response?.code === 200) {
         if (response.data.length) {
           setPaginationData(response.pagination);
         }
       }
+      if (response.data) {
+        setCamoDataList(response.data[0].camos)
+        console.log('data');
+
+      } else {
+        setCamoDataList([]);
+        console.log('data no');
+      }
+      // console.log(response.data ? 'data present' : 'no data');
+      // console.log(response);
+      console.log(filterParams);
+
       hide();
+      setCurrentRow(response)
       return true;
     } catch (error) {
       hide();
+      console.log(error);
       message.error('Failed to get camo data!');
       return false;
     }
@@ -316,7 +352,7 @@ const TableList: React.FC = () => {
               className={isCollapse ? styles.colHidden : ''}
             >
               <FormItem name="camoname" className={styles.formItem}>
-                <Input placeholder="Camo name" type="text" prefix={<UserOutlined />} />
+                <Input placeholder="Camo name" type="text" prefix={<UserOutlined />} allowClear />
               </FormItem>
             </Col>
             <Col
@@ -328,7 +364,7 @@ const TableList: React.FC = () => {
               className={isCollapse ? styles.colHidden : ''}
             >
               <FormItem name="added_by" className={styles.formItem}>
-                <Input placeholder="Added By" type="text" prefix={<UserOutlined />} />
+                <Input type="text" placeholder="Added By" prefix={<UserOutlined />} allowClear />
               </FormItem>
             </Col>
             <Col
@@ -380,8 +416,8 @@ const TableList: React.FC = () => {
         headerTitle="Camos"
         search={false}
         columns={columns}
-        // dataSource={camoDataList}
-        dataSource={CamoList.camos}
+        dataSource={camoDataList}
+        // dataSource={CamoList.camos}
         options={false}
         rowSelection={{
           onChange: (_, selectedRows) => {
@@ -543,7 +579,7 @@ const TableList: React.FC = () => {
           <Input
             size="large"
             placeholder="Enter affiliate url"
-            readOnly={editModalVisible}
+            // readOnly={editModalVisible}
             suffix={
               editModalVisible && (
                 <Tooltip title="Copy">

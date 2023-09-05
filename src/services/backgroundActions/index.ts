@@ -26,6 +26,7 @@ async function getBackgroundsList(body: { [key: string]: any }, options?: { [key
       ...(options || {}),
     });
     dispatch(fetchBackgroundListSuccess(response.data));
+    console.log(response);
     return response;
   } catch (error: any) {
     dispatch(fetchBackgroundListFailure(error.message));

@@ -99,7 +99,7 @@ const CamoForm: React.FC<propTypes> = ({
       getCamoData();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isEdit, currentRow, camoLoading]);
+  }, [isEdit, currentRow]);  //  <= camoLoading
 
   useEffect(() => {
     handleFilterCamo();

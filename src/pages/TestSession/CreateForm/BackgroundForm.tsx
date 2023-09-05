@@ -110,8 +110,9 @@ const BackgroundForm: React.FC<propTypes> = ({
     } else {
       getBgData();
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isEdit, currentRow, backgroundLoading]);
+  }, [isEdit, currentRow]); //  <= backgroundLoading
   useEffect(() => {
     handleFilterBackground();
     // eslint-disable-next-line react-hooks/exhaustive-deps

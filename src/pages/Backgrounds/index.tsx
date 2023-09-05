@@ -117,22 +117,22 @@ const TableList: React.FC = () => {
     {
       title: 'Uploaded By',
       dataIndex: 'created_by',
-      sorter: (a: any, b: any) => a.created_by && a.created_by.localeCompare(b.created_by),
+      sorter: (a: any, b: any) => a.created_by.localeCompare(b.created_by),
     },
     {
       title: 'Location',
       dataIndex: 'location',
-      sorter: (a: any, b: any) => a.location && a.location.localeCompare(b.location),
+      sorter: (a: any, b: any) => a.location.localeCompare(b.location),//a.location && a.location.localeCompare(b.location)
     },
     {
       title: 'Weather',
       dataIndex: 'weather',
-      sorter: (a: any, b: any) => a.weather && a.weather.localeCompare(b.weather),
+      sorter: (a: any, b: any) => a.weather.localeCompare(b.weather),
     },
     {
       title: 'Category',
       dataIndex: 'category',
-      sorter: (a: any, b: any) => a.category && a.category.localeCompare(b.category),
+      sorter: (a: any, b: any) => a.category.localeCompare(b.category),
     },
     {
       title: 'Metadata',
@@ -176,6 +176,8 @@ const TableList: React.FC = () => {
         },
         { params: filterParams },
       );
+      console.log(filterParams);
+      console.log(response?.code);
       setBackgroundDataList(response.data);
       setPaginationData(response.pagination);
       hide();
@@ -202,6 +204,19 @@ const TableList: React.FC = () => {
   };
 
   const handleFilter = (val: Background) => {
+
+    if (
+      val.added_by === '' &&
+      val.background_name === '' &&
+      val.location === '' &&
+      val.weather === '' &&
+      val.category === ''
+    ) {
+      filterForm.resetFields();
+      setFilterParams({});
+      setHideClearBtn(false);
+    }
+
     if (
       val.added_by === '' ||
       val.background_name === '' ||
@@ -209,6 +224,9 @@ const TableList: React.FC = () => {
       val.weather === '' ||
       val.category === ''
     ) {
+      console.log("values");
+      console.log(val)
+      // filterForm.resetFields();
       setFilterParams({});
       setHideClearBtn(false);
     } else {
@@ -241,7 +259,7 @@ const TableList: React.FC = () => {
               className={isCollapse ? styles.colHidden : ''}
             >
               <FormItem name="background_name" className={styles.formItem}>
-                <Input placeholder="Background name" type="text" />
+                <Input placeholder="Background name" type="text" allowClear />
               </FormItem>
             </Col>
             <Col
@@ -253,7 +271,7 @@ const TableList: React.FC = () => {
               className={isCollapse ? styles.colHidden : ''}
             >
               <FormItem name="added_by" className={styles.formItem}>
-                <Input placeholder="Added By" type="text" />
+                <Input placeholder="Added By" type="text" allowClear />
               </FormItem>
             </Col>
             <Col
@@ -265,7 +283,7 @@ const TableList: React.FC = () => {
               className={isCollapse ? styles.colHidden : ''}
             >
               <FormItem name="location" className={styles.formItem}>
-                <Input placeholder="Location" type="text" />
+                <Input placeholder="Location" type="text" allowClear />
               </FormItem>
             </Col>
             <Col
@@ -277,7 +295,7 @@ const TableList: React.FC = () => {
               className={isCollapse ? styles.colHidden : ''}
             >
               <FormItem name="weather" className={styles.formItem}>
-                <Input placeholder="Weather" type="text" />
+                <Input placeholder="Weather" type="text" allowClear />
               </FormItem>
             </Col>
             <Col
@@ -289,7 +307,7 @@ const TableList: React.FC = () => {
               className={isCollapse ? styles.colHidden : ''}
             >
               <FormItem name="category" className={styles.formItem}>
-                <Input placeholder="Category" type="text" />
+                <Input placeholder="Category" type="text" allowClear />
               </FormItem>
             </Col>
             <Col xs={24} sm={12} md={6} lg={4} xl={4}>

@@ -198,24 +198,25 @@ const TestSession: React.FC = () => {
       },
     );
   };
-  const getUserList = (pageNumber: number, size = 10, value: string) => {
+  const getUserList = (pageNumber: number, size = 10, value: string, user_type = "string") => {
     UserAPIClient.getUsers(
       {
+        user_type: user_type,
         page_number: pageNumber,
         page_size: size,
       },
-      // {
-      //   params: {
-      //     user_fname: value,
-      //   },
-      // },
+      {
+        params: {
+          user_fname: value,
+        },
+      },
     );
   };
 
   useEffect(() => {
     getBackgroundsList(1, 20, '');
     getCamoList(1, 20, '');
-    getUserList(1, 20, '');
+    getUserList(1, 10, '');
   }, []);
 
   useEffect(() => {
@@ -437,7 +438,7 @@ const TestSession: React.FC = () => {
         isEdit={editModalVisible}
         getList={() => getTestSessions()}
         getBgData={() => getBackgroundsList(1, 20, '')}
-        getCamoData={() => getBackgroundsList(1, 20, '')}
+        getCamoData={() => getCamoList(1, 20, '')}
       />
       {/* data add update drawer */}
 

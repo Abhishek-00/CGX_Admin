@@ -21,6 +21,8 @@ async function getCamosList(body: { [key: string]: any }, options?: { [key: stri
       data: body,
       ...(options || {}),
     });
+    console.log(response.data);
+
     if (response) dispatch(fetchCamoListSuccess(response.data[0]));
     return response;
   } catch (e: any) {
